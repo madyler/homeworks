@@ -15,7 +15,6 @@ function HW1() {
         <div className={s.hw1_body}>
             <hr/>
             homeworks 1
-
             <Message
                 avatar={messageData.avatar}
                 name={messageData.name}
