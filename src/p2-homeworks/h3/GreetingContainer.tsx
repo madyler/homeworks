@@ -4,9 +4,8 @@ import {UserType} from "./HW3";
 
 type GreetingContainerPropsType = {
     users: UserType[]
-    addUserCallback: (name: string)=>void
+    addUserCallback: (name: string) => void
 }
-
 
 const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUserCallback}) => {
     const [name, setName] = useState<string>('')
@@ -15,15 +14,16 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUser
     const setNameCallback = (e: ChangeEvent<HTMLInputElement>) => {
         setName(e.currentTarget.value)
     }
+
     const addUser = () => {
         if (name) {
-            alert(`Hello  !` + name)
+            alert(`Hello ${name} !`)
             addUserCallback(name)
         } else {
             setError('The name should be empty!')
         }
     }
-    const totalUsers = users.length
+    let totalUsers = users.length
 
     return (
         <Greeting
@@ -32,6 +32,7 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUser
             addUser={addUser}
             error={error}
             totalUsers={totalUsers}
+            setError={setError}
         />
     )
 }
