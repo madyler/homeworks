@@ -5,6 +5,7 @@
 .error {
     border: 1px solid red;
 }
-.errorText{
+
+.errorText {
     color: red;
 }
