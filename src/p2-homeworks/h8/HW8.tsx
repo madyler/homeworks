@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {homeWorkReducer} from './bll/homeWorkReducer'
 import SuperButton from '../h4/common/c2-SuperButton/SuperButton'
-import SuperInputText from "../h4/common/c1-SuperInputText/SuperInputText";
+import {SuperInput} from "./SuperInputH8special";
 
 export type UserType = {
     _id: number
@@ -10,7 +10,7 @@ export type UserType = {
 }
 export type ActionType = {
     type: string
-    payload: 'up'|'down'|number
+    payload: 'up' | 'down' | number
 }
 
 const initialPeople = [
@@ -36,20 +36,19 @@ function HW8() {
     const sortDown = () => setPeople(homeWorkReducer(initialPeople, {type: 'sort', payload: 'down'}))
     const checkAge = () => setPeople(homeWorkReducer(initialPeople, {type: 'check', payload: age}))
 
-  return (
+    return (
         <div>
             <hr/>
             homeworks 8
             <br/>
             -------------------
-            {/*should work (должно работать)*/}
             {finalPeople}
 
             <div><SuperButton onClick={sortUp}>sort up</SuperButton></div>
             <div><SuperButton onClick={sortDown}>sort down</SuperButton></div>
             <div>
                 <SuperButton onClick={checkAge}>check</SuperButton>
-                <SuperInputText value={age} onChangeText={setAge}/>
+                <SuperInput value={age} type={"number"} onChangeText={setAge}/>
             </div>
         </div>
     )
