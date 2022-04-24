@@ -18,13 +18,13 @@ function Clock() {
     }
 
     const onMouseEnter = () => {
-        // show
+        setShow(true)
     }
     const onMouseLeave = () => {
-        // close
+        setShow(false)
     }
 
-    const stringTime = 'Time' // fix with date
+    const stringTime = new Date().toTimeString().replace(/ .*/, '') // fix with date
     const stringDate = 'Date' // fix with date
 
     return (
